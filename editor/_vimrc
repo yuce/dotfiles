@@ -1,0 +1,119 @@
+
+syntax on
+behave xterm
+set noswapfile
+
+set nocompatible	" Use Vim defaults instead of 100% vi compatibility
+set backspace=indent,eol,start	" more powerful backspacing
+
+  " Now we set some defaults for the editor
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set softtabstop=4
+set autoindent
+set linebreak		" Don't wrap words by default
+set textwidth=0		" Don't wrap lines by default
+set nobackup
+set viminfo='20,\"50	" read/write a .viminfo file, don't store more than
+  			" 50 lines of registers
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set nu
+set nofoldenable " turn off folding
+
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+" We know xterm-debian is a color terminal
+if &term =~ "xterm-debian" || &term =~ "xterm-xfree86"
+set t_Co=16
+set t_Sf=^[[3%dm
+set t_Sb=^[[4%dm
+endif
+
+filetype plugin on
+
+if has('gui_running')
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+endif
+
+":set cursorline
+":hi CursorLine ctermbg=darkblue
+autocmd InsertLeave * hi CursorLine cterm=none ctermbg=lightgray
+autocmd InsertEnter * hi CursorLine cterm=bold ctermbg=none
+
+hi RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$\| \+\ze\t/
+
+hi LineNr guibg=darkgray guifg=black
+
+"" highlight lines with length > 80
+"hi LineTooLong ctermbg=yellow guibg=LightYellow
+"match LineTooLong /\%>80v.\+/
+
+set listchars=tab:>-,trail:.,extends:>
+
+imap <khome> <home>
+nmap <khome> <home>
+inoremap <silent> <home> <C-O>:call Home()<CR>
+nnoremap <silent> <home> :call Home()<CR>
+function Home()
+    let curcol = wincol()
+    normal ^
+    let newcol = wincol()
+    if newcol == curcol
+        normal 0
+    endif
+endfunction
+
+imap <kend> <end>
+nmap <kend> <end>
+inoremap <silent> <end> <C-O>:call End()<CR>
+nnoremap <silent> <end> :call End()<CR>
+function End()
+    let curcol = wincol()
+    normal g$
+    let newcol = wincol()
+    if newcol == curcol
+        normal $
+    endif
+    if virtcol(".") == virtcol("$") - 1
+        normal $
+    endif
+endfunction
+
+set statusline=%F%m%r\ [%Y\ %{&ff}\ %{&encoding}]\ Buf:%n\ Line:%l/%L\ Col:%c%V\ \(%p%%\)
+set laststatus=2
+set showcmd
+set ignorecase
+set smartcase
+
+map <M-Down> gj
+map <M-Up> gk
+imap <M-Up> <ESC>gki
+imap <M-Down> <ESC>gji
+
+map gf :edit <cfile><CR>
+nmap <leader>tt :TlistToggle<CR>
+
+" hit <F5> to draw a line under current line
+nnoremap <F5> yyp<c-v>$r-
+inoremap <F5> <Esc>yyp<c-v>$r-A
+nnoremap <s-F5> yyp<c-v>$r=
+inoremap <s-F5> <Esc>yyp<c-v>$r=A
+
+" hit \- to draw a line (-)
+" hit \= to draw a line (=)
+
+nnoremap <Leader>l- yyp^v$r-o<Esc>
+nnoremap <Leader>l= yyp^v$r=o<Esc>
+nnoremap <Leader>l+ yyp^v$r+o<Esc>
+nnoremap <Leader>l. yyp^v$r.o<Esc>
+inoremap <Leader>{ {<CR>}<Esc><s-o><Tab>
+"inoremap <Leader>f <Esc>bifunction <Esc>lea()<c-m>{<c-m>}<Esc><s-o><Tab><Esc>2kf(a
+
