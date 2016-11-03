@@ -5,6 +5,17 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+function gitprompt()
+{
+    stat=`git status 2>/dev/null | head -1`
+    if [ "$stat" != "" ]
+    then
+        #printf "%*s" $COLUMNS "(${stat:10})"
+        echo " (${stat:10})"
+    fi
+}
+
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
@@ -17,8 +28,10 @@ shopt -s histappend
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+# E=$(printf "\e")
+PS1='\[\033[01;31m\]\w\[\033[00m\]$(gitprompt)\n\[\033[00;32m\]\u@\h\[\033[00m\]|\[\033[01;34m\]\t\[\033[00m\]|\[\033[36m\]\!\[\033[00m\]\$ '
 
-PS1='\[\033[01;31m\]\w\n\[\033[00;32m\]\u@\h\[\033[00m\]|\[\033[01;34m\]\t\[\033[00m\]|\[\033[36m\]\!\[\033[00m\]\$ '
+#export PS1='\[$(tput setaf 3;gitprompt;tput setaf 1)\w\n\]$'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -42,10 +55,15 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 export NODEPATH=$HOME/node
+export GOROOT=$HOME/go
+export DNXHOME=$HOME/dnx
+export JAVA_HOME=$HOME/jdk
 
-export PATH=$PATH:$HOME/bin:/opt/otp/bin:$HOME/elixir/bin:$NODEPATH/bin
+export PATH=$PATH:$HOME/bin:/opt/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
+
+# export GOPATH=$HOME/go_path
 
 alias ..="cd .."
 
@@ -57,15 +75,12 @@ alias m4='alias b4="cd `pwd`"'
 alias m5='alias b5="cd `pwd`"'
 
 # ramdisk
-alias mount_ramdisk='sudo mount -t tmpfs -o size=512M ramdisk $HOME/ramdisk'
+alias mount_ramdisk='sudo mount -t tmpfs -o size=1024M ramdisk $HOME/ramdisk'
 alias umount_ramdisk='sudo umount $HOME/ramdisk'
 
+alias https='http --default-scheme=https'
+
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
-
-code() {
-	VSCODE_CWD="$PWD" $HOME/VSCode-linux-x64/Code $* &
-
-}
 
 echo
 . $HOME/bin/z.sh
@@ -74,3 +89,9 @@ if [ -f $HOME/.bashrc_private ]
 then
     source $HOME/.bashrc_private
 fi
+
+mcd()
+{
+    test -e "$1" || mkdir -p "$1"
+    cd "$1"
+}
