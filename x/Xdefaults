@@ -30,9 +30,10 @@ xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
 
 
 ! URxvt*geometry: 120x40
-URxvt*font: xft:Hack:style=Regular:pixelsize=13:antialias=true
+URxvt*font: xft:Hack:style=Regular:pixelsize=12:antialias=false
 ! using the old style font loading to avoid the cursor to sometime disappear...
 ! URxvt*font: -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-u
+URxvt.letterSpace: -1
 
 URxvt*saveLines: 10000
 URxvt*scrollBar: false
@@ -115,7 +116,7 @@ URxvt*depth: 24
 URxvt*background: rgb:0000/0000/0000
 
 ! Fade the terminal by 40% when it looses focus
-URxvt*fading: 30
+URxvt*fading: 20
 
 Xft.lcdfilter: ldcdefault
 Xft.hintstyle: hintslight
