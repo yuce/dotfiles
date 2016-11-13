@@ -30,7 +30,7 @@ xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
 
 
 ! URxvt*geometry: 120x40
-URxvt*font: xft:Hack:style=Regular:pixelsize=12:antialias=true
+URxvt*font: xft:Hack:style=Regular:pixelsize=13:antialias=true
 ! using the old style font loading to avoid the cursor to sometime disappear...
 ! URxvt*font: -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-u
 
@@ -44,6 +44,10 @@ URxvt.iconFile: /usr/share/icons/Humanity/apps/48/bash.svg
 
 URxvt.iso14755: off
 URxvt.iso14755_52: off
+
+! disable perl extensions
+URxvt.perl-ext:
+URxvt.perl-ext-common:
 !
 ! ! tabbedex is not provided by default (Debian/Ubuntu)
 ! ! put it in ~/.urxvt/
