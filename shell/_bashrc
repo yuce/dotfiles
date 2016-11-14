@@ -15,9 +15,6 @@ function gitprompt()
     fi
 }
 
-
-# don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 
@@ -66,19 +63,31 @@ export LC_ALL=en_US.UTF-8
 # export GOPATH=$HOME/go_path
 
 alias ..="cd .."
+alias ...='cd ../..'
 
 # bookmark support
-alias m1='alias b1="cd `pwd`"'
-alias m2='alias b2="cd `pwd`"'
-alias m3='alias b3="cd `pwd`"'
-alias m4='alias b4="cd `pwd`"'
-alias m5='alias b5="cd `pwd`"'
+alias m1='alias j1="cd `pwd`"'
+alias m2='alias j2="cd `pwd`"'
+alias m3='alias j3="cd `pwd`"'
+alias m4='alias j4="cd `pwd`"'
+alias m5='alias j5="cd `pwd`"'
+
+# git related
+alias g.s='git status -s'
+alias g.d='git diff'
+alias g.a='git add'
+alias g..='cd $(git rev-parse --show-cdup)'
+alias g.m='git commit -m'
+alias g.o='git checkout'
+alias g.ob='git checkout -b'
 
 # ramdisk
 alias mount_ramdisk='sudo mount -t tmpfs -o size=1024M ramdisk $HOME/ramdisk'
 alias umount_ramdisk='sudo umount $HOME/ramdisk'
 
 alias https='http --default-scheme=https'
+alias ll='ls -lh'
+#alias open='xdg-open > /dev/null 2>&1'
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 
@@ -97,6 +106,29 @@ mcd()
 }
 
 hist () {
-    C=$(history | cut -c8- | fzf) && $C
+    local C=$(history | cut -c8- | fzf) && $C
+}
+
+__BOOKMARKS_PATH=$HOME/.bookmarks
+__read_bookmarks () {
+    if [ -f $__BOOKMARKS_PATH ]
+    then
+        cat $__BOOKMARKS_PATH
+    else
+        return 1
+    fi
+}
+
+mb () {
+    local d="$1"
+    if [ "$d" == "" ]
+    then
+        d=$(pwd)
+    fi
+    printf "$d\n" >> $__BOOKMARKS_PATH
+}
+
+mj () {
+    local BOOKMARK=$(__read_bookmarks | fzf) && cd $BOOKMARK
 }
 
