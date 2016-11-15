@@ -90,6 +90,7 @@ alias ll='ls -lh'
 #alias open='xdg-open > /dev/null 2>&1'
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
+export AUTOSRC_FILENAME=.change-this-in-your-private-settings
 
 echo
 . $HOME/bin/z.sh
@@ -129,6 +130,33 @@ mb () {
 }
 
 mj () {
-    local BOOKMARK=$(__read_bookmarks | fzf) && cd $BOOKMARK
+    local BOOKMARK=$(__read_bookmarks | fzf) && acd $BOOKMARK
+}
+
+acd () {
+    if [ "$(type -t autosource_end)" == "function" ]
+    then
+        autosource_end
+        unset -f autosource_end
+    fi
+    if [ "$1" != "" ]
+    then
+        local autorun_path="$1/$AUTOSRC_FILENAME"
+        if [ -f $autorun_path ]
+        then
+            . $autorun_path
+            if [ "$(type -t autosource_begin)" == "function" ]
+            then
+                autosource_begin
+                unset -f autosource_begin
+            fi
+        fi
+        builtin cd "$1"
+    fi
+}
+
+touch_autosrc () {
+    touch $AUTOSRC_FILENAME
+    echo $AUTOSRC_FILENAME
 }
 
