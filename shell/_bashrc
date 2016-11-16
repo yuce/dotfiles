@@ -111,10 +111,10 @@ hist () {
 }
 
 autosrc_cd () {
-    if [ "$(type -t autosrc_end)" == "function" ]
+    if [ "$(type -t autosrc_exit)" == "function" ]
     then
-        autosrc_end
-        unset -f autosrc_end
+        autosrc_exit
+        unset -f autosrc_exit
     fi
     if [ "$1" != "" ]
     then
@@ -124,15 +124,15 @@ autosrc_cd () {
             . $autorun_path
         fi
         builtin cd "$1"
-        if [ "$(type -t autosrc_begin)" == "function" ]
+        if [ "$(type -t autosrc_enter)" == "function" ]
         then
-            autosrc_begin
-            unset -f autosrc_begin
+            autosrc_enter
+            unset -f autosrc_enter
         fi
     fi
 }
 
-touch_autosrc () {
+autosrc_touch () {
     touch $AUTOSRC_FILENAME
     echo $AUTOSRC_FILENAME
 }
