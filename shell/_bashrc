@@ -134,10 +134,10 @@ mj () {
 }
 
 acd () {
-    if [ "$(type -t autosource_end)" == "function" ]
+    if [ "$(type -t autosrc_end)" == "function" ]
     then
-        autosource_end
-        unset -f autosource_end
+        autosrc_end
+        unset -f autosrc_end
     fi
     if [ "$1" != "" ]
     then
@@ -145,13 +145,13 @@ acd () {
         if [ -f $autorun_path ]
         then
             . $autorun_path
-            if [ "$(type -t autosource_begin)" == "function" ]
-            then
-                autosource_begin
-                unset -f autosource_begin
-            fi
         fi
         builtin cd "$1"
+        if [ "$(type -t autosrc_begin)" == "function" ]
+        then
+            autosrc_begin
+            unset -f autosrc_begin
+        fi
     fi
 }
 
