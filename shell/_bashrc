@@ -110,30 +110,7 @@ hist () {
     local C=$(history | cut -c8- | fzf) && $C
 }
 
-__BOOKMARKS_PATH=$HOME/.bookmarks
-__read_bookmarks () {
-    if [ -f $__BOOKMARKS_PATH ]
-    then
-        cat $__BOOKMARKS_PATH
-    else
-        return 1
-    fi
-}
-
-mb () {
-    local d="$1"
-    if [ "$d" == "" ]
-    then
-        d=$(pwd)
-    fi
-    printf "$d\n" >> $__BOOKMARKS_PATH
-}
-
-mj () {
-    local BOOKMARK=$(__read_bookmarks | fzf) && acd $BOOKMARK
-}
-
-acd () {
+autosrc_cd () {
     if [ "$(type -t autosrc_end)" == "function" ]
     then
         autosrc_end
@@ -158,5 +135,58 @@ acd () {
 touch_autosrc () {
     touch $AUTOSRC_FILENAME
     echo $AUTOSRC_FILENAME
+}
+
+alias acd=autosrc_cd
+
+__BOOKMARKS_DIR=$HOME/.bookmarks
+__read_bookmarks () {
+    if [ "$1" != "" ]
+    then
+        local bookmark_path="$__BOOKMARKS_DIR/$1"
+    else
+        local bookmark_path="$__BOOKMARKS_DIR/DEFAULT"
+    fi
+    if [ -f $bookmark_path ]
+    then
+        cat $bookmark_path
+    else
+        return 1
+    fi
+}
+
+mb () {
+    if [ ! -d $__BOOKMARKS_DIR ]
+    then
+        mkdir -p $__BOOKMARKS_DIR
+    fi
+    if [ "$1" != "" ]
+    then
+        local bookmark_path="$__BOOKMARKS_DIR/$1"
+    else
+        local bookmark_path="$__BOOKMARKS_DIR/DEFAULT"
+    fi
+    local path=$(pwd)
+    if [ -f $bookmark_path ]
+    then
+        printf "\n$path" >> $bookmark_path
+    else
+        printf "$path" > $bookmark_path
+    fi
+}
+
+mj () {
+    local bookmarks=$(__read_bookmarks $1)
+    local bookmark_count=$(echo "$bookmarks" | wc -l)
+    if [ $bookmark_count -lt 2 ]
+    then
+        local bookmark="$bookmarks"
+    else
+        local bookmark=$(echo "$bookmarks" | fzf)
+    fi
+    if [ "$bookmark" != "" ]
+    then
+        acd "$bookmark"
+    fi
 }
 
