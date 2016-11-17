@@ -15,6 +15,9 @@ function gitprompt()
     fi
 }
 
+# Map Ctrl-S to sth usefull other than XOFF (interrupt data flow).
+stty -ixon
+
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 
@@ -116,19 +119,21 @@ autosrc_cd () {
         autosrc_exit
         unset -f autosrc_exit
     fi
-    if [ "$1" != "" ]
+    if [ "$1" == "" ]; then
+        local cdto="$HOME"
+    else
+        local cdto="$1"
+    fi
+    local autorun_path="$cdto/$AUTOSRC_FILENAME"
+    if [ -f $autorun_path ]
     then
-        local autorun_path="$1/$AUTOSRC_FILENAME"
-        if [ -f $autorun_path ]
-        then
-            . $autorun_path
-        fi
-        builtin cd "$1"
-        if [ "$(type -t autosrc_enter)" == "function" ]
-        then
-            autosrc_enter
-            unset -f autosrc_enter
-        fi
+        . $autorun_path
+    fi
+    builtin cd "$cdto"
+    if [ "$(type -t autosrc_enter)" == "function" ]
+    then
+        autosrc_enter
+        unset -f autosrc_enter
     fi
 }
 
@@ -186,7 +191,7 @@ mj () {
     fi
     if [ "$bookmark" != "" ]
     then
-        acd "$bookmark"
+        cd "$bookmark"
     fi
 }
 
