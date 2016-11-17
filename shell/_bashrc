@@ -137,7 +137,7 @@ autosrc_touch () {
     echo $AUTOSRC_FILENAME
 }
 
-alias acd=autosrc_cd
+alias cd=autosrc_cd
 
 __BOOKMARKS_DIR=$HOME/.bookmarks
 __read_bookmarks () {

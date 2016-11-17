@@ -179,7 +179,7 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 # finds out, if available)
 bar {
     #status_command i3status
-    status_command /home/yuce/apps/bin/i3blocks -c /home/yuce/.i3/i3blocks.conf
+    status_command /home/yuce/.config/i3/i3blocks/bin/i3blocks -c /home/yuce/.config/i3/i3blocks/etc/i3blocks.conf
     #tray_output primary
 	mode hide
 }

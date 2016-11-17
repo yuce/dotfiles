@@ -1,0 +1,9 @@
+#! /usr/bin/env python
+import urllib
+import re
+
+RE_FL = r'<span class="fl">([\d,]+)'
+
+text = urllib.urlopen("http://www.ntvpara.com/").read()
+fls = re.findall(RE_FL, text)
+print fls[1]
