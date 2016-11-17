@@ -199,5 +199,5 @@ bookmark_jump () {
     fi
 }
 
-alias b=bookmark_save
+alias m=bookmark_save
 alias j=bookmark_jump
