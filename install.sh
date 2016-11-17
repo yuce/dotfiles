@@ -40,4 +40,4 @@ install i3        "$ROOT/wm/i3/config" "$HOME/.config/i3/config"
 install i3blocks  "$ROOT/wm/i3/i3blocks_`uname -m`" "$HOME/.config/i3/i3blocks"
 install Xdefaults "$ROOT/x/Xdefaults" "$HOME/.Xdefaults"
 install Aptitude  "$ROOT/aptitude/config" "$HOME/.aptitude/config"
-
+install gitignore "$ROOT/git/_gitignore_global" "$HOME/.gitignore_global"
