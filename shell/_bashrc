@@ -160,7 +160,7 @@ __read_bookmarks () {
     fi
 }
 
-b () {
+bookmark_save () {
     if [ ! -d $__BOOKMARKS_DIR ]
     then
         mkdir -p $__BOOKMARKS_DIR
@@ -180,7 +180,7 @@ b () {
     fi
 }
 
-j () {
+bookmark_jump () {
     local bookmarks=$(__read_bookmarks $1)
     if [ "$bookmarks" == "" ]; then
         local bname="$(ls $__BOOKMARKS_DIR | fzf)"
@@ -199,3 +199,5 @@ j () {
     fi
 }
 
+alias b=bookmark_save
+alias j=bookmark_jump
