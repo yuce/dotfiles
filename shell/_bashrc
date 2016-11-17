@@ -160,7 +160,7 @@ __read_bookmarks () {
     fi
 }
 
-mb () {
+b () {
     if [ ! -d $__BOOKMARKS_DIR ]
     then
         mkdir -p $__BOOKMARKS_DIR
@@ -180,7 +180,7 @@ mb () {
     fi
 }
 
-mj () {
+j () {
     local bookmarks=$(__read_bookmarks $1)
     if [ "$bookmarks" == "" ]; then
         local bname="$(ls $__BOOKMARKS_DIR | fzf)"
@@ -188,9 +188,7 @@ mj () {
             bookmarks=$(__read_bookmarks $bname)
         fi
     fi
-    echo "bookmarks: $bookmarks"
     local bookmark_count=$(echo "$bookmarks" | wc -l)
-    echo "bookmark count: $bookmark_count"
     if [ $bookmark_count -lt 2 ]; then
         local bookmark="$bookmarks"
     else
