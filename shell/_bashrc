@@ -160,7 +160,7 @@ __read_bookmarks () {
     fi
 }
 
-bookmark_save () {
+bookmark_mark () {
     if [ ! -d $__BOOKMARKS_DIR ]
     then
         mkdir -p $__BOOKMARKS_DIR
@@ -199,5 +199,5 @@ bookmark_jump () {
     fi
 }
 
-alias m=bookmark_save
+alias m=bookmark_mark
 alias j=bookmark_jump
