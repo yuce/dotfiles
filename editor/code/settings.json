@@ -1,0 +1,13 @@
+// Place your settings in this file to overwrite the default settings
+{
+
+    // Migrated from previous "File | Auto Save" setting:
+    "files.autoSave": "onFocusChange",
+    "erlang.enableExperimentalAutoComplete": true,
+    "go.goroot": "/home/yuce/go",
+    "rust.racerPath": "/home/yuce/.cargo/bin/racer",
+    "rust.rustLangSrcPath": "/home/yuce/Downloads/rust/src",
+    "rust.cargoHomePath": "/home/yuce/.cargo",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false    
+}

@@ -16,10 +16,16 @@ install () {
     [ -L "$3" ] || (echo "Installing $1" && backup_link "$2" "$3")
 }
 
-mkdir -p $HOME/bin
-
 system=`uname -s`
 system_arch=`uname -s`-`uname -m`
+
+if [ "$system" == "Darwin" ]; then
+    code_user_dir="$HOME/Library/Application Support/Code/User"
+else
+    code_user_dir="$HOME/.config/Code/User"
+fi
+
+mkdir -p $HOME/bin $code_user_dir
 
 if [ "$system" == "Linux" ]; then
     mkdir -p $HOME/.config $HOME/.aptitude
@@ -30,9 +36,12 @@ if [ "$system" == "Linux" ]; then
     install Aptitude  "$ROOT/aptitude/config"           "$HOME/.aptitude/config"
 fi
 
-install bashrc    "$ROOT/shell/_bashrc"             "$HOME/.bashrc"
-install z         "$ROOT/bin/z.sh"                  "$HOME/bin/z.sh"
-install vimrc     "$ROOT/editor/_vimrc"             "$HOME/.vimrc"
-install gitignore "$ROOT/git/_gitignore_global"     "$HOME/.gitignore_global"
-install fzf       "$ROOT/bin/fzf-$system_arch"      "$HOME/bin/fzf"
+install bashrc               "$ROOT/shell/_bashrc"                "$HOME/.bashrc"
+install z                    "$ROOT/bin/z.sh"                     "$HOME/bin/z.sh"
+install vimrc                "$ROOT/editor/_vimrc"                "$HOME/.vimrc"
+install gitignore            "$ROOT/git/_gitignore_global"        "$HOME/.gitignore_global"
+install fzf                  "$ROOT/bin/fzf-$system_arch"         "$HOME/bin/fzf"
+install "VSCode settings"    "$ROOT/editor/code/settings.json"    "$code_user_dir/settings.json"
+install "VSCode keybindings" "$ROOT/editor/code/keybindings.json" "$code_user_dir/keybindings.json"
+install "VSCode snippets"    "$ROOT/editor/code/snippets"         "$code_user_dir/snippets"
 
