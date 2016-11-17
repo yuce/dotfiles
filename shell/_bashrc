@@ -45,7 +45,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
-    if [ "uname -s" == "Linux"]; then
+    if [ `uname -s` == "Linux" ]; then
         alias ls='ls --color=auto'
     else
         alias ls='ls -G'
