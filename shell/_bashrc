@@ -45,9 +45,11 @@ esac
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
+    if [ "uname -s" == "Linux"]; then
+        alias ls='ls --color=auto'
+    else
+        alias ls='ls -G'
+    fi
 fi
 
 if [ -f /etc/bash_completion ]; then
@@ -63,17 +65,8 @@ export PATH=$PATH:$HOME/bin:/opt/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/b
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
 
-# export GOPATH=$HOME/go_path
-
 alias ..="cd .."
 alias ...='cd ../..'
-
-# bookmark support
-alias m1='alias j1="cd `pwd`"'
-alias m2='alias j2="cd `pwd`"'
-alias m3='alias j3="cd `pwd`"'
-alias m4='alias j4="cd `pwd`"'
-alias m5='alias j5="cd `pwd`"'
 
 # git related
 alias g.s='git status -s'
