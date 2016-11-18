@@ -77,6 +77,8 @@ alias g..='cd $(git rev-parse --show-cdup)'
 alias g.m='git commit -m'
 alias g.o='git checkout'
 alias g.ob='git checkout -b'
+alias g^='git push'
+alias gv='git pull'
 
 # ramdisk
 alias mount_ramdisk='sudo mount -t tmpfs -o size=1024M ramdisk $HOME/ramdisk'
