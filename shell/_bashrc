@@ -90,6 +90,7 @@ alias ll='ls -lh'
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 export AUTOSRC_FILENAME=.change-this-in-your-private-settings
+export AUTOSRC_MCD=1
 
 echo
 . $HOME/bin/z.sh
@@ -124,6 +125,11 @@ autosrc_cd () {
     if [ -f $autorun_path ]
     then
         . $autorun_path
+    fi
+    if [ "$AUTOSRC_MCD" == "1" ]; then
+        if [ ! -e "$cdto" ];  then
+            mkdir "$cdto"
+        fi
     fi
     builtin cd "$cdto"
     if [ "$(type -t autosrc_enter)" == "function" ]
