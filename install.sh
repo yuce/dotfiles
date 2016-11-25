@@ -25,7 +25,7 @@ else
     code_user_dir="$HOME/.config/Code/User"
 fi
 
-mkdir -p $HOME/bin $code_user_dir
+mkdir -p $HOME/bin $code_user_dir "$HOME/.config/i3"
 
 if [ "$system" == "Linux" ]; then
     mkdir -p $HOME/.config $HOME/.aptitude
