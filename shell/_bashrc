@@ -185,9 +185,11 @@ bookmark_mark () {
 bookmark_jump () {
     local bookmarks=$(__read_bookmarks $1)
     if [ "$bookmarks" == "" ]; then
-        local bname="$(ls $__BOOKMARKS_DIR | fzf)"
-        if [ "$bname" != "" ]; then
-            bookmarks=$(__read_bookmarks $bname)
+        if [ -e "$__BOOKMARKS_DIR" ]; then
+            local bname="$(ls $__BOOKMARKS_DIR | fzf)"
+            if [ "$bname" != "" ]; then
+                bookmarks=$(__read_bookmarks $bname)
+            fi
         fi
     fi
     local bookmark_count=$(echo "$bookmarks" | wc -l)
