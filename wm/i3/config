@@ -183,8 +183,7 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #status_command i3status
-    status_command /home/yuce/.config/i3/i3blocks/bin/i3blocks -c /home/yuce/.config/i3/i3blocks/etc/i3blocks.conf
+    status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
     #tray_output primary
 	mode hide
 }
