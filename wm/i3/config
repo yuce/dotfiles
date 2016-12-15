@@ -106,6 +106,8 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+#bindsym KP_1 workspace 1
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -183,7 +185,9 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
+    status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json -l $home/ramdisk/g.log
+    #status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
+    #status_command $home/go_path/src/github.com/yuce/gobar/gobar/i3gobar
     #tray_output primary
 	mode hide
 }
@@ -207,10 +211,11 @@ workspace 8 output HDMI1
 workspace 10 output HDMI1
 
 exec --no-startup-id nm-applet
-exec --no-startup-id killall -q notify-osd
-exec --no-startup-id dunst
+# exec --no-startup-id killall -q notify-osd
+# exec --no-startup-id dunst
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-notes
+exec --no-startup-id blueman-applet
 # exec --no-startup-id xmodmap -e "keysym Menu = Super_L"
 
 # exec --no-startup-id dropbox start

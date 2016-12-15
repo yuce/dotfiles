@@ -1,0 +1,87 @@
+{
+    "theme": "mytheme.json",
+    "defaults": {
+        "separator": false,
+        "separator_block_width": 0
+    },
+    "items": [
+        {
+            "name": "used_mem",
+            "module": "ExternalCommand",
+            "label": "Mem: ",
+            "command": "free -m | awk 'NR == 2 {printf(\"%1.2f/%1.2f G\", $3/1024, $2/1024)}'",
+            "interval": 60,
+            "theme": "color4"
+        },
+        {
+            "name": "used_swap",
+            "module": "ExternalCommand",
+            "label": "Swap: ",
+            "command": "free -m | awk 'NR == 3 {printf(\"%1.2f/%1.2f G\", $3/1024, $2/1024)}'",
+            "interval": 60,
+            "theme": "color2"
+        },
+        {
+            "name": "used_root_disk",
+            "module": "ExternalCommand",
+            "label": "/: ",
+            "command": "df -m | awk '$6 == \"/\" {printf(\"%1.2fG (%1.2f%%)\", $3/1024, $3/$2*100)}'",
+            "interval": 120,
+            "theme": "color2"
+        },
+        {
+            "name": "external_ip",
+            "module": "ExternalCommand",
+            "label": "E: ",
+            "command": "dig +short myip.opendns.com @resolver1.opendns.com",
+            "theme": "color1"
+        },
+        {
+            "name": "internal_ip",
+            "module": "ExternalCommand",
+            "label": "I: ",
+            "command": "hostname --all-ip-addresses",
+            "theme": "color1"
+        },
+        {
+            "name": "wifi",
+            "module": "ExternalCommand",
+            "command": "echo `iwgetid -r` `awk 'NR==3 {print $3 \"00%\"}' /proc/net/wireless`",
+            "interval": 60,
+            "theme": "color2"
+        },
+        {
+            "name": "battery",
+            "module": "ExternalCommand",
+            "label": "⚡ ",
+            "command": "upower -i $(upower -e | grep 'BAT')|grep percentage|awk '{print $2}'",
+            "interval": 60,
+            "theme": "color4"
+        },
+        {
+            "name": "usdtry",
+            "module": "ExternalCommand",
+            "label": "$ ",
+            "command": "python3 ~/.config/i3/i3blocks/scripts/i3blocks/usdtry",
+            "interval": 600,
+            "theme": "color3"
+        },
+        {
+            "name": "austin_date",
+            "module": "DateTime",
+            "label": "A: ",
+            "format":   "15:04",
+            "location": "America/Chicago",
+            "interval": 30,
+            "theme": "color1"
+        },        
+        {
+            "name": "gaziantep_date",
+            "module": "DateTime",
+            "label": "G: ",
+            "format":   "2006-01-02 15:04",
+            "interval": 30,
+            "theme": "color2"
+        }        
+    ]
+}

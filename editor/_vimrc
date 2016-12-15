@@ -37,13 +37,17 @@ endif
 filetype plugin on
 
 if has('gui_running')
-" Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
+    " Make shift-insert work like in Xterm
+    map <S-Insert> <MiddleMouse>
+    map! <S-Insert> <MiddleMouse>
+    colorscheme darkblue
+    set guioptions -=m
+    set guioptions -=T
 endif
 
 ":set cursorline
 ":hi CursorLine ctermbg=darkblue
+":hi CursorLine ctermbg=darkblue guibg=darkblue
 autocmd InsertLeave * hi CursorLine cterm=none ctermbg=lightgray
 autocmd InsertEnter * hi CursorLine cterm=bold ctermbg=none
 
@@ -58,34 +62,34 @@ hi LineNr guibg=darkgray guifg=black
 
 set listchars=tab:>-,trail:.,extends:>
 
-imap <khome> <home>
-nmap <khome> <home>
-inoremap <silent> <home> <C-O>:call Home()<CR>
-nnoremap <silent> <home> :call Home()<CR>
-function Home()
-    let curcol = wincol()
-    normal ^
-    let newcol = wincol()
-    if newcol == curcol
-        normal 0
-    endif
-endfunction
-
-imap <kend> <end>
-nmap <kend> <end>
-inoremap <silent> <end> <C-O>:call End()<CR>
-nnoremap <silent> <end> :call End()<CR>
-function End()
-    let curcol = wincol()
-    normal g$
-    let newcol = wincol()
-    if newcol == curcol
-        normal $
-    endif
-    if virtcol(".") == virtcol("$") - 1
-        normal $
-    endif
-endfunction
+"imap <khome> <home>
+"nmap <khome> <home>
+"inoremap <silent> <home> <C-O>:call Home()<CR>
+"nnoremap <silent> <home> :call Home()<CR>
+"function Home()
+"    let curcol = wincol()
+"    normal ^
+"    let newcol = wincol()
+"    if newcol == curcol
+"        normal 0
+"    endif
+"endfunction
+"
+"imap <kend> <end>
+"nmap <kend> <end>
+"inoremap <silent> <end> <C-O>:call End()<CR>
+"nnoremap <silent> <end> :call End()<CR>
+"function End()
+"    let curcol = wincol()
+"    normal g$
+"    let newcol = wincol()
+"    if newcol == curcol
+"        normal $
+"    endif
+"    if virtcol(".") == virtcol("$") - 1
+"        normal $
+"    endif
+"endfunction
 
 set statusline=%F%m%r\ [%Y\ %{&ff}\ %{&encoding}]\ Buf:%n\ Line:%l/%L\ Col:%c%V\ \(%p%%\)
 set laststatus=2

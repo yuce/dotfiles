@@ -56,9 +56,9 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export NODEPATH=$HOME/node
 export GOROOT=$HOME/go
-export DNXHOME=$HOME/dnx
+export GOPATH=$HOME/go_path
+export NODEPATH=$HOME/node
 export JAVA_HOME=$HOME/jdk
 
 export PATH=$PATH:$HOME/bin:/opt/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin

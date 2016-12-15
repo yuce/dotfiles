@@ -125,3 +125,10 @@ Xft.hintstyle: hintslight
 ! When you scroll a pager in a secondary screen (e.g. less without the -X option), it may be a good idea to disable the scrollback buffer to be able to scroll in the pager itself, instead of the terminal's buffer: this is default and unchangeable behaviour in konsole and vte-based terminals.
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
+
+# Added to fix ctrl+arrow for micro, but doesn't seem to work
+URxvt.keysym.Control-Up:   \033[1;5A
+URxvt.keysym.Control-Down:    \033[1;5B
+URxvt.keysym.Control-Left:    \033[1;5D
+URxvt.keysym.Control-Right:    \033[1;5C
+

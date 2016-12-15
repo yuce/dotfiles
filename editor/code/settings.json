@@ -5,9 +5,12 @@
     "files.autoSave": "onFocusChange",
     "erlang.enableExperimentalAutoComplete": true,
     "go.goroot": "/home/yuce/go",
+    "go.gopath": "/home/yuce/go_path",
     "rust.racerPath": "/home/yuce/.cargo/bin/racer",
     "rust.rustLangSrcPath": "/home/yuce/Downloads/rust/src",
     "rust.cargoHomePath": "/home/yuce/.cargo",
     "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false    
+    "telemetry.enableCrashReporter": false,
+    "workbench.statusBar.visible": true,
+    "editor.renderLineHighlight": "all"
 }
