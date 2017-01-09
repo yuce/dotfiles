@@ -12,5 +12,6 @@
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "workbench.statusBar.visible": true,
-    "editor.renderLineHighlight": "all"
+    "editor.renderLineHighlight": "all",
+    "window.zoomLevel": 0
 }

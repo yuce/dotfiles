@@ -60,20 +60,23 @@ export GOROOT=$HOME/go
 export GOPATH=$HOME/go_path
 export NODEPATH=$HOME/node
 export JAVA_HOME=$HOME/jdk
+export YARN_HOME=$HOME/yarn
 
-export PATH=$PATH:$HOME/bin:/opt/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin
+export PATH=$PATH:$HOME/bin:/$HOME/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin:$YARN_HOME/bin
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
 
 alias ..="cd .."
 alias ...='cd ../..'
 
+alias a..="acd .."
+alias a...='acd ../..'
 # git related
 alias g.s='git status -s'
 alias g.d='git diff'
 alias g+='git add'
 alias g-='git reset HEAD'
-alias g..='cd $(git rev-parse --show-cdup)'
+alias g..='acd $(git rev-parse --show-cdup)'
 alias g.m='git commit -m'
 alias g.o='git checkout'
 alias g.ob='git checkout -b'
@@ -111,15 +114,15 @@ hist () {
 }
 
 autosrc_cd () {
-    if [ "$(type -t autosrc_exit)" == "function" ]
-    then
-        autosrc_exit
-        unset -f autosrc_exit
-    fi
     if [ "$1" == "" ]; then
         local cdto="$HOME"
     else
         local cdto="$1"
+    fi
+    if [ "$(type -t autosrc_exit)" == "function" ]
+    then
+        autosrc_exit "$cdto"
+        unset -f autosrc_exit
     fi
     local autorun_path="$cdto/$AUTOSRC_FILENAME"
     if [ -f $autorun_path ]
@@ -128,7 +131,7 @@ autosrc_cd () {
     fi
     if [ "$AUTOSRC_MCD" == "1" ]; then
         if [ ! -e "$cdto" ];  then
-            mkdir "$cdto"
+            mkdir -p "$cdto"
         fi
     fi
     builtin cd "$cdto"
@@ -144,7 +147,7 @@ autosrc_touch () {
     echo $AUTOSRC_FILENAME
 }
 
-alias cd=autosrc_cd
+alias acd=autosrc_cd
 
 __BOOKMARKS_DIR=$HOME/.bookmarks
 __read_bookmarks () {
@@ -199,9 +202,12 @@ bookmark_jump () {
         local bookmark=$(echo "$bookmarks" | fzf)
     fi
     if [ "$bookmark" != "" ]; then
-        cd "$bookmark"
+        acd "$bookmark"
     fi
 }
 
 alias m=bookmark_mark
 alias j=bookmark_jump
+
+fortune | cowsay
+

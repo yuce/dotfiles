@@ -2,18 +2,17 @@
 import http.client
 import json
 
+ST = b'''<span data-type="son_fiyat" data-secid="USDTRY Curncy">'''
+
 def main():
-    conn = http.client.HTTPConnection('api.ntv.com.tr')
-    conn.request('GET', '/Finance?code=USD%2FTRL&period=daily')
+    conn = http.client.HTTPConnection('www.bloomberght.com')
+    conn.request('GET', '/')
     resp = conn.getresponse()
     if resp.status == 200:
-        data = json.loads(resp.read().decode('utf-8'))
-        try:
-            data_time = data['data']['xAxisData'][-1]
-            data_value = data['data']['yAxisData'][-1]
-            print("%s (@%s)" % (data_value, data_time))
-        except IndexError:
-            print("NO DATA")
+        text = resp.read()
+        i0 = text.find(ST)
+        i1 = text.find(b'<', i0 + len(ST))
+        print(text[i0+len(ST):i1].decode('utf-8'))
     else:
         print("ERROR:", resp.status, resp.reason)
 

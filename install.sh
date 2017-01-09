@@ -37,6 +37,7 @@ if [ "$system" == "Linux" ]; then
 fi
 
 install bashrc               "$ROOT/shell/_bashrc"                "$HOME/.bashrc"
+install screenrc             "$ROOT/shell/_screenrc"              "$HOME/.screenrc"
 install z                    "$ROOT/bin/z.sh"                     "$HOME/bin/z.sh"
 install vimrc                "$ROOT/editor/_vimrc"                "$HOME/.vimrc"
 install gitignore            "$ROOT/git/_gitignore_global"        "$HOME/.gitignore_global"
