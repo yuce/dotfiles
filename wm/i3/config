@@ -192,7 +192,7 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json -l $home/ramdisk/g.log
+    status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
     #status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
     #status_command $home/go_path/src/github.com/yuce/gobar/gobar/i3gobar
     #tray_output primary
@@ -227,4 +227,4 @@ exec --no-startup-id blueman-applet
 
 # exec --no-startup-id dropbox start
 
-
+exec --no-startup-id feh --bg-fill $HOME/Pictures/photo-1468413922365-e3766a17da9e.jpg

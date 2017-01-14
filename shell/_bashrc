@@ -80,6 +80,7 @@ alias g..='acd $(git rev-parse --show-cdup)'
 alias g.m='git commit -m'
 alias g.o='git checkout'
 alias g.ob='git checkout -b'
+alias g.p='git pam'
 alias g^='git push'
 alias gv='git pull'
 
@@ -90,6 +91,8 @@ alias umount_ramdisk='sudo umount $HOME/ramdisk'
 alias https='http --default-scheme=https'
 alias ll='ls -lh'
 #alias open='xdg-open > /dev/null 2>&1'
+
+alias pomodoro='gone -e "i3-nagbar -m Pomodoro_DONE -t warning"'
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 export AUTOSRC_FILENAME=.change-this-in-your-private-settings
