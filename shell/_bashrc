@@ -211,6 +211,6 @@ bookmark_jump () {
 
 alias m=bookmark_mark
 alias j=bookmark_jump
-
+alias neofetch='$HOME/neofetch/neofetch'
 fortune | cowsay
 

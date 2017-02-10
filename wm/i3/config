@@ -40,6 +40,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec thunar
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -203,19 +204,19 @@ focus_follows_mouse no
 new_window pixel 1
 workspace_auto_back_and_forth yes
 
-exec --no-startup-id xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1
+# exec --no-startup-id xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1
 
 # workspace screens
-workspace 1 output LVDS1
-workspace 3 output LVDS1
-workspace 5 output LVDS1
-workspace 7 output LVDS1
-workspace 9 output LVDS1
-workspace 2 output HDMI1
-workspace 4 output HDMI1
-workspace 6 output HDMI1
-workspace 8 output HDMI1
-workspace 10 output HDMI1
+workspace 1 output LVDS-1
+workspace 3 output LVDS-1
+workspace 5 output LVDS-1
+workspace 7 output LVDS-1
+workspace 9 output LVDS-1
+workspace 2 output HDMI-1
+workspace 4 output HDMI-1
+workspace 6 output HDMI-1
+workspace 8 output HDMI-1
+workspace 10 output HDMI-1
 
 exec --no-startup-id nm-applet
 # exec --no-startup-id killall -q notify-osd
@@ -227,4 +228,4 @@ exec --no-startup-id blueman-applet
 
 # exec --no-startup-id dropbox start
 
-exec --no-startup-id feh --bg-fill $HOME/Pictures/photo-1468413922365-e3766a17da9e.jpg
+exec --no-startup-id feh --bg-fill $HOME/Pictures/YRqsYiw.png
