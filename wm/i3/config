@@ -177,12 +177,12 @@ bindsym $mod+grave exec --no-startup-id xfce4-popup-notes
 # bindsym $mod+Shift+l exec i3lock --color a0a0f
 bindsym Print exec xfce4-screenshooter
 bindsym XF86HomePage exec thunar
-bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioMute exec amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks
 bindsym XF86Search  exec --no-startup-id i3-dmenu-desktop
-bindsym XF86MonBrightnessUp exec xbacklight +10
-bindsym XF86MonBrightnessDown exec xbacklight -10
+#bindsym XF86MonBrightnessUp exec xbacklight +10
+#bindsym XF86MonBrightnessDown exec xbacklight -10
 bindsym XF86Calculator exec gnome-calculator
 
 # screen lock
@@ -193,8 +193,8 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
-    #status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
+    #status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
+    status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
     #status_command $home/go_path/src/github.com/yuce/gobar/gobar/i3gobar
     #tray_output primary
 	mode hide
@@ -218,6 +218,9 @@ workspace 6 output HDMI-1
 workspace 8 output HDMI-1
 workspace 10 output HDMI-1
 
+exec --no-startup-id xfsettingsd --no-daemon --replace --sm-disable
+
+exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
 # exec --no-startup-id killall -q notify-osd
 # exec --no-startup-id dunst
@@ -228,4 +231,6 @@ exec --no-startup-id blueman-applet
 
 # exec --no-startup-id dropbox start
 
-exec --no-startup-id feh --bg-fill $HOME/Pictures/YRqsYiw.png
+#exec --no-startup-id feh --bg-fill $HOME/Pictures/YRqsYiw.png
+
+exec --no-startup-id syndaemon -i 0.4 -k -R -t
