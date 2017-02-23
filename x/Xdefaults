@@ -115,8 +115,8 @@ URxvt.perl-ext-common:
 !
 URxvt*foreground: #ffffff
 ! True transparency with shading to stay readable
-URxvt*depth: 24
-URxvt*background: rgb:0000/0000/0000
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0000/c800
 
 ! Fade the terminal by 40% when it looses focus
 URxvt*fading: 30
