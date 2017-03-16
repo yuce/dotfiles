@@ -52,6 +52,8 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # installed.
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+Shift+Ctrl+d exec --no-startup-id sh $home/bin/todo
+
 # change focus
 # bindsym $mod+j focus left
 # bindsym $mod+k focus down
@@ -167,12 +169,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+m move scratchpad
-bindsym $mod+Tab scratchpad show
-bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -P 'Mark: '
-bindsym $mod+j exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -P 'Jump: '
+#bindsym $mod+Tab scratchpad show
+bindsym $mod+Tab workspace back_and_forth
+# disabled the following until the new i3wm release
+#bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -P 'Mark: '
+#bindsym $mod+j exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -P 'Jump: '
 
 # show notes
-bindsym $mod+grave exec --no-startup-id xfce4-popup-notes
+#bindsym $mod+grave exec --no-startup-id xfce4-popup-notes
+bindsym $mod+Escape exec --no-startup-id xfce4-popup-notes
+bindsym $mod+grave scratchpad show
 
 # bindsym $mod+Shift+l exec i3lock --color a0a0f
 bindsym Print exec xfce4-screenshooter
@@ -193,8 +199,8 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
-    status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
+    status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
+    #status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
     #status_command $home/go_path/src/github.com/yuce/gobar/gobar/i3gobar
     #tray_output primary
 	mode hide
@@ -218,7 +224,7 @@ workspace 6 output HDMI-1
 workspace 8 output HDMI-1
 workspace 10 output HDMI-1
 
-exec --no-startup-id xfsettingsd --no-daemon --replace --sm-disable
+# exec --no-startup-id xfsettingsd --no-daemon --replace --sm-disable
 
 exec --no-startup-id xfce4-volumed
 exec --no-startup-id nm-applet
@@ -232,5 +238,8 @@ exec --no-startup-id blueman-applet
 # exec --no-startup-id dropbox start
 
 #exec --no-startup-id feh --bg-fill $HOME/Pictures/YRqsYiw.png
+exec --no-startup-id feh --bg-fill /home/yuce/Pictures/No-Mans-Sky-4-K-Wallpaper-1920x1080.jpg
 
-exec --no-startup-id syndaemon -i 0.4 -k -R -t
+#exec --no-startup-id syndaemon -i 0.4 -k -R -t
+exec --no-startup-id setxkbmap -layout us,tr
+exec --no-startup-id setxkbmap -option 'grp:shift_alt_toggle'

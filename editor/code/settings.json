@@ -17,5 +17,11 @@
     "window.zoomLevel": 0,
     "editor.wordWrap": true,
     "editor.cursorStyle": "line",
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Twilight",
+    "workbench.iconTheme": "vs-seti",
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.renderWhitespace": "all",
+    "workbench.welcome.enabled": false
 }
