@@ -18,10 +18,17 @@
     "editor.wordWrap": true,
     "editor.cursorStyle": "line",
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Twilight",
+    "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "vs-seti",
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
     "editor.renderWhitespace": "all",
-    "workbench.welcome.enabled": false
+    "workbench.welcome.enabled": false,
+    "python.linting.enabledWithoutWorkspace": false,
+    "[cpp]": {
+        "editor.quickSuggestions": false
+    },
+    "[c]": {
+        "editor.quickSuggestions": false
+    }
 }
