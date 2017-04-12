@@ -213,11 +213,11 @@ new_window pixel 1
 # exec --no-startup-id xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1
 
 # workspace screens
-workspace 1 output LVDS-1
-workspace 3 output LVDS-1
-workspace 5 output LVDS-1
-workspace 7 output LVDS-1
-workspace 9 output LVDS-1
+workspace 1 output eDP-1
+workspace 3 output eDP-1
+workspace 5 output eDP-1
+workspace 7 output eDP-1
+workspace 9 output eDP-1
 workspace 2 output HDMI-1
 workspace 4 output HDMI-1
 workspace 6 output HDMI-1
@@ -240,6 +240,6 @@ exec --no-startup-id blueman-applet
 #exec --no-startup-id feh --bg-fill $HOME/Pictures/YRqsYiw.png
 exec --no-startup-id feh --bg-fill /home/yuce/Pictures/No-Mans-Sky-4-K-Wallpaper-1920x1080.jpg
 
-#exec --no-startup-id syndaemon -i 0.4 -k -R -t
+exec --no-startup-id syndaemon -i 0.4 -k -R -t
 exec --no-startup-id setxkbmap -layout us,tr
 exec --no-startup-id setxkbmap -option 'grp:shift_alt_toggle'
