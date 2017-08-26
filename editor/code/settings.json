@@ -18,17 +18,14 @@
     "editor.wordWrap": true,
     "editor.cursorStyle": "line",
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Dracula",
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": "dobri-theme-icons",
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
     "editor.renderWhitespace": "all",
     "workbench.welcome.enabled": false,
     "python.linting.enabledWithoutWorkspace": false,
-    "[cpp]": {
-        "editor.quickSuggestions": false
-    },
-    "[c]": {
-        "editor.quickSuggestions": false
-    }
+    "go.toolsGopath": "/home/yuce/go_path",
+    "editor.renderControlCharacters": true,
+    "workbench.colorTheme": "Default Light+",
+    "editor.autoIndent": true
 }

@@ -199,8 +199,8 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
-    #status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
+    #status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
+    status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
     #status_command $home/go_path/src/github.com/yuce/gobar/gobar/i3gobar
     #tray_output primary
 	mode hide
@@ -241,5 +241,4 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id feh --bg-fill /home/yuce/Pictures/No-Mans-Sky-4-K-Wallpaper-1920x1080.jpg
 
 exec --no-startup-id syndaemon -i 0.4 -k -R -t
-exec --no-startup-id setxkbmap -layout us,tr
-exec --no-startup-id setxkbmap -option 'grp:shift_alt_toggle'
+exec --no-startup-id setxkbmap -layout us,tr -option 'grp:alt_shift_toggle'
