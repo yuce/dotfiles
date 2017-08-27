@@ -61,7 +61,7 @@ export GOPATH=$HOME/go_path
 export NODEPATH=$HOME/node
 export YARN_HOME=$HOME/yarn
 
-export PATH=$PATH:$HOME/bin:/$HOME/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin:$YARN_HOME/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/bin:/opt/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin:$YARN_HOME/bin:$GOPATH/bin
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
 
