@@ -123,3 +123,10 @@ inoremap <Leader>{ {<CR>}<Esc><s-o><Tab>
 
 " toggle to paste correctly from system clipboard
 set pastetoggle=<F2>
+
+" ca65 language support
+filetype plugin indent on
+augroup filetypedetect
+    au BufNewFile,BufRead *.s,*.inc set ft=asm_ca65
+augroup END
+

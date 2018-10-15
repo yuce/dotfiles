@@ -37,10 +37,14 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# prevent mouse scroll on the title bar
+bindsym button4 nop
+bindsym button5 nop
+
 # start a terminal
 #bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec thunar
+bindsym $mod+Shift+Return exec pcmanfm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -182,7 +186,7 @@ bindsym $mod+grave scratchpad show
 
 # bindsym $mod+Shift+l exec i3lock --color a0a0f
 bindsym Print exec xfce4-screenshooter
-bindsym XF86HomePage exec thunar
+bindsym XF86HomePage exec pcmanfm
 #bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ && pkill -RTMIN+10 i3blocks
 #bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- && pkill -RTMIN+10 i3blocks
 #bindsym XF86AudioMute exec amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks
@@ -213,16 +217,16 @@ new_window pixel 1
 # exec --no-startup-id xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1
 
 # workspace screens
-workspace 1 output eDP-1
-workspace 3 output eDP-1
-workspace 5 output eDP-1
-workspace 7 output eDP-1
-workspace 9 output eDP-1
-workspace 2 output HDMI-1
-workspace 4 output HDMI-1
-workspace 6 output HDMI-1
-workspace 8 output HDMI-1
-workspace 10 output HDMI-1
+workspace 1 output eDP-1-1
+workspace 3 output eDP-1-1
+workspace 5 output eDP-1-1
+workspace 7 output eDP-1-1
+workspace 9 output eDP-1-1
+workspace 2 output HDMI-1-1
+workspace 4 output HDMI-1-1
+workspace 6 output HDMI-1-1
+workspace 8 output HDMI-1-1
+workspace 10 output HDMI-1-1
 
 # exec --no-startup-id xfsettingsd --no-daemon --replace --sm-disable
 
@@ -240,5 +244,5 @@ exec --no-startup-id blueman-applet
 #exec --no-startup-id feh --bg-fill $HOME/Pictures/YRqsYiw.png
 exec --no-startup-id feh --bg-fill /home/yuce/Pictures/No-Mans-Sky-4-K-Wallpaper-1920x1080.jpg
 
-exec --no-startup-id syndaemon -i 0.4 -k -R -t
-exec --no-startup-id setxkbmap -layout us,tr -option 'grp:alt_shift_toggle'
+exec_always --no-startup-id syndaemon -i 0.4 -k -R -t
+exec_always --no-startup-id setxkbmap -layout us,tr -option 'grp:alt_shift_toggle'

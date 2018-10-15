@@ -56,12 +56,8 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export GOROOT=$HOME/go
 export GOPATH=$HOME/go_path
-export NODEPATH=$HOME/node
-export YARN_HOME=$HOME/yarn
-
-export PATH=$PATH:$HOME/bin:/opt/otp/bin:/opt/elixir/bin:$NODEPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin:$YARN_HOME/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$HOME/.cargo/bin:$HOME/.cache/rebar3/bin:$GOPATH/bin
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
 
@@ -107,7 +103,8 @@ fi
 
 mcd()
 {
-    test -e "$1" || mkdir -p "$1"
+    #test -e "$1" || mkdir -p "$1"
+    test -e "$1" || mk "$1"
     cd "$1"
 }
 
@@ -210,3 +207,8 @@ bookmark_jump () {
 
 alias m=bookmark_mark
 alias j=bookmark_jump
+
+whoseport () {
+    lsof -i ":$1" | grep LISTEN
+}
+
