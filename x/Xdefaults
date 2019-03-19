@@ -169,6 +169,14 @@ URxvt.secondaryScroll: 0
 ! xterm*faceName: Hack:size=10:antialias=false
 ! xterm*font: 7x13
 
+! ! unbind default copy/ paste
+! URxvt.keysym.C-M-c: builtin-string:
+! URxvt.keysym.C-M-v: builtin-string:
+! 
+! ! bind copy/paste
+! URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+! URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
 
 ! Nasty hack to act more like XTerm
 *URxvt*termName:		xterm-256color

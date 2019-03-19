@@ -43,5 +43,17 @@
                                          "when": "editorTextFocus && !editorReadonly" },
 
     { "key": "ctrl+`",          "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" },
-    { "key": "ctrl+`",          "command": "workbench.action.terminal.focus", "when": "!terminalFocus" }
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+m ctrl+d",
+        "command": "extension.mkDir"
+    },
+    {
+        "key": "ctrl+m ctrl+f",
+        "command": "extension.mkFile"
+    }
 ]

@@ -38,6 +38,7 @@ fi
 
 install bashrc               "$ROOT/shell/_bashrc"                "$HOME/.bashrc"
 install screenrc             "$ROOT/shell/_screenrc"              "$HOME/.screenrc"
+install tmux                 "$ROOT/shell/_tmux.conf"             "$HOME/.tmux.conf"
 install z                    "$ROOT/bin/z.sh"                     "$HOME/bin/z.sh"
 install vimrc                "$ROOT/editor/_vimrc"                "$HOME/.vimrc"
 install gitignore            "$ROOT/git/_gitignore_global"        "$HOME/.gitignore_global"
@@ -45,4 +46,5 @@ install fzf                  "$ROOT/bin/fzf-$system_arch"         "$HOME/bin/fzf
 install "VSCode settings"    "$ROOT/editor/code/settings.json"    "$code_user_dir/settings.json"
 install "VSCode keybindings" "$ROOT/editor/code/keybindings.json" "$code_user_dir/keybindings.json"
 install "VSCode snippets"    "$ROOT/editor/code/snippets"         "$code_user_dir/snippets"
+install tmux                 "$ROOT/shell/_tmux.conf"             "$HOME/.tmux.conf"
 

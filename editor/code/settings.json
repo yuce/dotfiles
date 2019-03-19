@@ -47,5 +47,14 @@
     "workbench.settings.enableNaturalLanguageSearch": false,
     "telemetry.enableTelemetry": false,
     "editor.dragAndDrop": false,
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "python.pythonPath": "",
+    "window.titleBarStyle": "native",
+    "FSharp.fsacRuntime": "netcore",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }
