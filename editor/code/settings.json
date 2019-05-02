@@ -56,5 +56,6 @@
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
-    }
+    },
+    "go.inferGopath": true
 }

@@ -248,8 +248,7 @@ exec --no-startup-id blueman-applet
 
 # exec --no-startup-id dropbox start
 
-#exec --no-startup-id feh --bg-fill $HOME/Pictures/YRqsYiw.png
-exec --no-startup-id feh --bg-fill /home/yuce/Pictures/No-Mans-Sky-4-K-Wallpaper-1920x1080.jpg
+exec_always --no-startup-id feh --bg-fill /home/yuce/Pictures/dssp.jpg
 
 exec_always --no-startup-id syndaemon -i 0.4 -k -R -t
 exec_always --no-startup-id setxkbmap -layout us,tr -option 'grp:alt_shift_toggle'
