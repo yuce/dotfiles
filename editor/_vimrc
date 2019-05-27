@@ -118,7 +118,7 @@ nnoremap <Leader>l- yyp^v$r-o<Esc>
 nnoremap <Leader>l= yyp^v$r=o<Esc>
 nnoremap <Leader>l+ yyp^v$r+o<Esc>
 nnoremap <Leader>l. yyp^v$r.o<Esc>
-inoremap <Leader>{ {<CR>}<Esc><s-o><Tab>
+inoremap <Leader>{ {<CR>}<Esc><s-o>
 "inoremap <Leader>f <Esc>bifunction <Esc>lea()<c-m>{<c-m>}<Esc><s-o><Tab><Esc>2kf(a
 
 " toggle to paste correctly from system clipboard
