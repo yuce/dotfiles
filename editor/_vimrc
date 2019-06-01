@@ -36,11 +36,17 @@ endif
 
 filetype plugin on
 
+" set the theme
+set t_Co=256   " This is may or may not needed.
+
+set background=light
+colorscheme PaperColor
+
 if has('gui_running')
     " Make shift-insert work like in Xterm
     map <S-Insert> <MiddleMouse>
     map! <S-Insert> <MiddleMouse>
-    colorscheme darkblue
+    "colorscheme darkblue
     set guioptions -=m
     set guioptions -=T
 endif

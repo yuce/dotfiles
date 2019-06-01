@@ -27,6 +27,9 @@ fi
 
 mkdir -p $HOME/bin $code_user_dir "$HOME/.config/i3"
 
+vim_colors_dir=$HOME/.vim/colors
+mkdir -p $vim_colors_dir
+
 if [ "$system" == "Linux" ]; then
     mkdir -p $HOME/.config $HOME/.aptitude
     install i3        "$ROOT/wm/i3/config"              "$HOME/.config/i3/config"
@@ -36,11 +39,14 @@ if [ "$system" == "Linux" ]; then
     install Aptitude  "$ROOT/aptitude/config"           "$HOME/.aptitude/config"
 fi
 
+vimthm="PaperColor.vim"
+
 install bashrc               "$ROOT/shell/_bashrc"                "$HOME/.bashrc"
 install screenrc             "$ROOT/shell/_screenrc"              "$HOME/.screenrc"
 install tmux                 "$ROOT/shell/_tmux.conf"             "$HOME/.tmux.conf"
 install z                    "$ROOT/bin/z.sh"                     "$HOME/bin/z.sh"
 install vimrc                "$ROOT/editor/_vimrc"                "$HOME/.vimrc"
+install vim-colors           "$ROOT/editor/_vim/colors/$vimthm"   "$vim_colors_dir/$vimthm"
 install gitignore            "$ROOT/git/_gitignore_global"        "$HOME/.gitignore_global"
 install fzf                  "$ROOT/bin/fzf-$system_arch"         "$HOME/bin/fzf"
 install "VSCode settings"    "$ROOT/editor/code/settings.json"    "$code_user_dir/settings.json"
