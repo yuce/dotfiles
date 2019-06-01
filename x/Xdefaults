@@ -40,7 +40,7 @@ URxvt*scrollBar: false
 ! URxvt.scrollstyle: plain
 ! URxvt.internalBorder: 1
 
-URxvt*cursorColor: white
+URxvt*cursorColor: green
 URxvt*cursorColor2: #aaaaaa
 URxvt.cursorBlink: 1
 
