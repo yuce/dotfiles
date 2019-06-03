@@ -88,6 +88,8 @@ alias ll='ls -lh'
 
 alias pomodoro='gone -e "i3-nagbar -m Pomodoro_DONE -t warning"'
 
+alias curl-u='curl --unix-socket'
+
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 export AUTOSRC_FILENAME=.change-this-in-your-private-settings
 export AUTOSRC_MCD=1
@@ -101,8 +103,7 @@ then
     source $HOME/.bashrc_private
 fi
 
-mcd()
-{
+mcd() {
     #test -e "$1" || mkdir -p "$1"
     test -e "$1" || mk -D "$1"
     cd "$1"
