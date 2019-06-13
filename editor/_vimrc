@@ -3,6 +3,10 @@ syntax on
 behave xterm
 set noswapfile
 
+" security
+set nomodeline
+set modelines=0
+
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=indent,eol,start	" more powerful backspacing
 

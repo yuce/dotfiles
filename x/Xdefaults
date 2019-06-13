@@ -114,30 +114,46 @@ URxvt.perl-ext-common:
 !
 !
 URxvt*foreground: #ffffff
+URxvt*background: rgba:0000/0000/0000/e800
 !! True transparency with shading to stay readable
 URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0000/e800
 
-!! Dracula Xresources palette
-!*.foreground: #F8F8F2
-!*.background: #282A36
-!*.color0:     #000000
-!*.color8:     #4D4D4D
-!*.color1:     #FF5555
-!*.color9:     #FF6E67
-!*.color2:     #50FA7B
-!*.color10:    #5AF78E
-!*.color3:     #F1FA8C
-!*.color11:    #F4F99D
-!*.color4:     #CAA9FA
-!*.color12:    #CAA9FA
-!*.color5:     #FF79C6
-!*.color13:    #FF92D0
-!*.color6:     #8BE9FD
-!*.color14:    #9AEDFE
-!*.color7:     #BFBFBF
-!*.color15:    #E6E6E6
-!URxvt*depth: 32
+! ! PaperColour Theme
+! URxvt.foreground: #4D4D4C
+! URxvt.background: #EEEEEE
+! 
+! ! black
+! URxvt.color0: #EDEDED
+! URxvt.color8: #969694
+! 
+! ! red
+! URxvt.color1: #D7005F
+! URxvt.color9: #D7005F
+! 
+! ! green
+! URxvt.color2: #718C00
+! URxvt.color10: #718C00
+! 
+! ! yellow / orange
+! URxvt.color3: #D75F00
+! URxvt.color11: #D75F00
+! 
+! ! blue
+! 
+! URxvt.color4: #4271AE
+! URxvt.color12: #4271AE
+! 
+! ! magenta
+! URxvt.color5: #8959A8
+! URxvt.color13: #8959A8
+! 
+! ! cyan
+! URxvt.color6: #3E999F
+! URxvt.color14: #3E999F
+! 
+! ! white
+! URxvt.color7: #4D4D4C
+! URxvt.color15: #F5F5F5
 
 ! Fade the terminal by 40% when it looses focus
 URxvt*fading: 30
