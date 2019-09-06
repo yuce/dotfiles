@@ -6,11 +6,6 @@
     "erlang.enableExperimentalAutoComplete": true,
     "go.goroot": "/home/yuce/go",
     "go.gopath": "/home/yuce/go_path",
-    "rust.racerPath": "/home/yuce/.cargo/bin/racer",
-    "rust.rustLangSrcPath": "/home/yuce/Downloads/rust/src",
-    "rust.cargoHomePath": "/home/yuce/.cargo",
-    "rust.formatOnSave": true,
-    "rust.checkOnSave": true,
     "telemetry.enableCrashReporter": false,
     "workbench.statusBar.visible": true,
     "editor.renderLineHighlight": "all",
@@ -40,7 +35,6 @@
     "d.tools.dfix": "/home/yuce/dmd2/linux/bin64/dfix",
     "d.tools.dProfileViewer": "/home/yuce/dmd2/linux/bin64/d-profile-viewer",
     "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
     "workbench.enableExperiments": false,
     "workbench.colorTheme": "Default Light+",
     "breadcrumbs.enabled": true,
@@ -56,5 +50,8 @@
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
-    }
+    },
+    "workbench.tree.renderIndentGuides": "always",
+    "update.showReleaseNotes": false,
+    "go.formatTool": "goimports"
 }
