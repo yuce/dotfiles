@@ -14,7 +14,7 @@ set $home /home/yuce
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 10
+font pango:monospace 8
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #55AA55
@@ -185,6 +185,9 @@ bindsym $mod+Tab workspace back_and_forth
 #bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -P 'Mark: '
 #bindsym $mod+j exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -P 'Jump: '
 
+# window on top of all windows
+bindsym $mod+o sticky toggle
+
 # show notes
 #bindsym $mod+grave exec --no-startup-id xfce4-popup-notes
 bindsym $mod+Escape exec --no-startup-id xfce4-popup-notes
@@ -203,14 +206,14 @@ bindsym XF86Search  exec --no-startup-id i3-dmenu-desktop
 bindsym XF86Calculator exec speedcrunch
 
 # screen lock
-bindsym $mod+l exec "gnome-screensaver-command --lock"
+bindsym $mod+l exec "xscreensaver-command --lock"
 
 #bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:monospace 14
+    font pango:monospace 11
     #status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
     status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
     #status_command $home/go_path/src/github.com/yuce/gobar/gobar/i3gobar
@@ -225,16 +228,16 @@ new_window pixel 1
 # exec --no-startup-id xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1
 
 # workspace screens
-workspace 1 output eDP-1-1
-workspace 3 output eDP-1-1
-workspace 5 output eDP-1-1
-workspace 7 output eDP-1-1
-workspace 9 output eDP-1-1
-workspace 2 output HDMI-1-1
-workspace 4 output HDMI-1-1
-workspace 6 output HDMI-1-1
-workspace 8 output HDMI-1-1
-workspace 10 output HDMI-1-1
+workspace 1 output eDP-1
+workspace 3 output eDP-1
+workspace 5 output eDP-1
+workspace 7 output eDP-1
+workspace 9 output eDP-1
+workspace 2 output HDMI-1
+workspace 4 output HDMI-1
+workspace 6 output HDMI-1
+workspace 8 output HDMI-1
+workspace 10 output HDMI-1
 
 # exec --no-startup-id xfsettingsd --no-daemon --replace --sm-disable
 
@@ -253,3 +256,6 @@ exec_always --no-startup-id feh --bg-fill /home/yuce/Pictures/dssp.jpg
 
 exec_always --no-startup-id syndaemon -i 0.4 -k -R -t
 exec_always --no-startup-id setxkbmap -layout us,tr -option 'grp:alt_shift_toggle'
+
+exec_always --no-startup-id xscreensaver
+

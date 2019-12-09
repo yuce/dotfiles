@@ -53,5 +53,6 @@
     },
     "workbench.tree.renderIndentGuides": "always",
     "update.showReleaseNotes": false,
-    "go.formatTool": "goimports"
+    "go.formatTool": "goimports",
+    "editor.trimAutoWhitespace": false
 }
