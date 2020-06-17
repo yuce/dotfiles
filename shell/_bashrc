@@ -65,6 +65,7 @@ fi
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
 
+alias ls.="ls --color=never"
 alias ..="cd .."
 alias ...='cd ../..'
 
