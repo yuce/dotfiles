@@ -94,7 +94,7 @@ alias curl-u='curl --unix-socket'
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 export AUTOSRC_FILENAME=.change-this-in-your-private-settings
 export AUTOSRC_MCD=1
-export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/snap/bin:/usr/games:$HOME/bin:/home/yuce/.local/bin
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/snap/bin:/usr/games:$HOME/bin:$HOME/.local/bin
 
 echo
 . $HOME/bin/z.sh
