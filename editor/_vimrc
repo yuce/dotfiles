@@ -140,3 +140,5 @@ augroup filetypedetect
     au BufNewFile,BufRead *.s,*.inc set ft=asm_ca65
 augroup END
 
+" assoc .pl files to prolog
+au BufRead,BufNewFile *.pl set ft=prolog
