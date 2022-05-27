@@ -54,5 +54,6 @@
     "workbench.tree.renderIndentGuides": "always",
     "update.showReleaseNotes": false,
     "go.formatTool": "goimports",
-    "editor.trimAutoWhitespace": false
+    "editor.trimAutoWhitespace": false,
+    "editor.bracketPairColorization.enabled": true
 }
