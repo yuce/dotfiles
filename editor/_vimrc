@@ -142,3 +142,5 @@ augroup END
 
 " assoc .pl files to prolog
 au BufRead,BufNewFile *.pl set ft=prolog
+
+au BufRead,BufNewFile *.lil set ft=lil
