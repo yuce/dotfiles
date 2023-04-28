@@ -8,6 +8,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# get rid of escaping auto-completion with Tab
+shopt -s direxpand
+
 function gitprompt()
 {
     stat=`git status 2>/dev/null | head -1`
