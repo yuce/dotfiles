@@ -71,7 +71,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export EDITOR=/usr/bin/vim
+export EDITOR=`which vim`
 export LC_ALL=en_US.UTF-8
 
 alias ls.="ls --color=never"
