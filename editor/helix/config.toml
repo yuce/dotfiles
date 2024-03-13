@@ -1,0 +1,8 @@
+
+[editor]
+mouse = false
+bufferline = "always"
+cursorline = true
+
+[keys.normal]
+X = "extend_line_above"
