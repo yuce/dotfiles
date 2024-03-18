@@ -5,4 +5,13 @@ bufferline = "always"
 cursorline = true
 
 [keys.normal]
-X = "extend_line_above"
+x = ["collapse_selection", "delete_selection"]
+"A-x" = ["collapse_selection", "delete_selection_noyank"]
+l = "extend_line_below"
+L = "extend_line_above"
+"A-l" = "copy_selection_on_next_line"
+D = "kill_to_line_end"
+C = ["kill_to_line_end", "insert_mode"]
+"C-x" = "completion"
+"C-/" = "toggle_comments"
+"0" = "goto_first_nonwhitespace"
