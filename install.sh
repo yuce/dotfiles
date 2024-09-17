@@ -29,6 +29,7 @@ mkdir -p $HOME/bin $code_user_dir "$HOME/.config/i3"
 
 vim_colors_dir=$HOME/.vim/colors
 mkdir -p $vim_colors_dir
+mkdir -p $HOME/.config/helix
 
 if [ "$system" == "Linux" ]; then
     mkdir -p $HOME/.config $HOME/.aptitude
@@ -53,4 +54,4 @@ install "VSCode settings"    "$ROOT/editor/code/settings.json"    "$code_user_di
 install "VSCode keybindings" "$ROOT/editor/code/keybindings.json" "$code_user_dir/keybindings.json"
 install "VSCode snippets"    "$ROOT/editor/code/snippets"         "$code_user_dir/snippets"
 install tmux                 "$ROOT/shell/_tmux.conf"             "$HOME/.tmux.conf"
-
+install helix                "$ROOT/editor/helix/config.toml"     "$HOME/.config/helix/config.toml"

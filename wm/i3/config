@@ -16,6 +16,8 @@ set $home /home/yuce
 # is used in the bar {} block below.
 font pango:monospace 8
 
+#exec --no-startup-id dex --autostart --environment
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #55AA55
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #005500
@@ -43,7 +45,7 @@ bindsym button5 nop
 
 # start a terminal
 # bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec sakura
 bindsym $mod+Shift+Return exec pcmanfm
 
 # kill focused window
@@ -145,7 +147,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# using plasma's logout screen instead of i3's
+bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -190,23 +194,28 @@ bindsym $mod+o sticky toggle
 
 # show notes
 #bindsym $mod+grave exec --no-startup-id xfce4-popup-notes
-bindsym $mod+Escape exec --no-startup-id xfce4-popup-notes
-bindsym $mod+grave scratchpad show
+#bindsym $mod+Escape exec --no-startup-id xfce4-popup-notes
+#bindsym $mod+grave scratchpad show
+bindsym F1 scratchpad show
 
 # bindsym $mod+Shift+l exec i3lock --color a0a0f
-bindsym Print exec xfce4-screenshooter
-bindsym XF86HomePage exec pcmanfm
+#bindsym Print exec spectacle
+#bindsym XF86HomePage exec dolphin
 #bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ && pkill -RTMIN+10 i3blocks
 #bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- && pkill -RTMIN+10 i3blocks
 #bindsym XF86AudioMute exec amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks
-bindsym XF86Search  exec --no-startup-id i3-dmenu-desktop
+#bindsym XF86AudioRaiseVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "increase_volume" && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioLowerVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "decrease_volume" && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioMute exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mute" && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioMicMute exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mic_mute"
+#bindsym XF86Search  exec --no-startup-id i3-dmenu-desktop
 #bindsym XF86MonBrightnessUp exec xbacklight +10
 #bindsym XF86MonBrightnessDown exec xbacklight -10
 #bindsym XF86Calculator exec gnome-calculator
-bindsym XF86Calculator exec speedcrunch
+#bindsym XF86Calculator exec speedcrunch
 
 # screen lock
-bindsym $mod+l exec "xscreensaver-command --lock"
+#bindsym $mod+l exec "xscreensaver-command --lock"
 
 #bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
@@ -214,11 +223,10 @@ bindsym $mod+l exec "xscreensaver-command --lock"
 # finds out, if available)
 bar {
     font pango:monospace 12
-    #status_command $home/.config/i3/i3gobar -c $home/.config/i3/i3gobarconfig.json
-    status_command $home/.config/i3/i3blocks/bin/i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
-    #status_command $home/go_path/src/github.com/yuce/gobar/gobar/i3gobar
+    #status_command i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
+    status_command i3status
     #tray_output primary
-	mode hide
+    mode hide
 }
 
 focus_follows_mouse no
@@ -228,34 +236,69 @@ new_window pixel 1
 # exec --no-startup-id xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1
 
 # workspace screens
-workspace 1 output eDP-1-1
-workspace 3 output eDP-1-1
-workspace 5 output eDP-1-1
-workspace 7 output eDP-1-1
-workspace 9 output eDP-1-1
-workspace 2 output HDMI-1-1
-workspace 4 output HDMI-1-1
-workspace 6 output HDMI-1-1
-workspace 8 output HDMI-1-1
-workspace 10 output HDMI-1-1
+# workspace 1 output eDP-1-1
+# workspace 3 output eDP-1-1
+# workspace 5 output eDP-1-1
+# workspace 7 output eDP-1-1
+# workspace 9 output eDP-1-1
+# workspace 2 output HDMI-1-1
+# workspace 4 output HDMI-1-1
+# workspace 6 output HDMI-1-1
+# workspace 8 output HDMI-1-1
+# workspace 10 output HDMI-1-1
+
+workspace 1 output HDMI-1
+workspace 3 output HDMI-1
+workspace 5 output HDMI-1
+workspace 7 output HDMI-1
+workspace 9 output LVDS-1
+workspace 2 output HDMI-1
+workspace 4 output HDMI-1
+workspace 6 output HDMI-1
+workspace 8 output HDMI-1
+workspace 10 output LVDS-1
+
+# Plasma compatibility improvements
+# see: https://github.com/heckelson/i3-and-kde-plasma
+#for_window [window_role="pop-up"] floating enable
+#for_window [window_role="task_dialog"] floating enable
+#
+#for_window [class="yakuake"] floating enable
+#for_window [class="systemsettings"] floating enable
+#for_window [class="plasmashell"] floating enable;
+#for_window [class="Plasma"] floating enable; border none
+#for_window [title="plasma-desktop"] floating enable; border none
+#for_window [title="win7"] floating enable; border none
+#for_window [class="krunner"] floating enable; border none
+#for_window [class="Kmix"] floating enable; border none
+#for_window [class="Klipper"] floating enable; border none
+#for_window [class="Plasmoidviewer"] floating enable; border none
+#for_window [class="(?i)*nextcloud*"] floating disable
+#for_window [class="plasmashell" window_type="notification"] border none, move position 70 ppt 81 ppt
+#no_focus [class="plasmashell" window_type="notification"]
+#for_window [title="Desktop — Plasma"] kill; floating enable; border none
+
+
 
 # exec --no-startup-id xfsettingsd --no-daemon --replace --sm-disable
 
-exec --no-startup-id xfce4-volumed
-exec --no-startup-id nm-applet
-# exec --no-startup-id killall -q notify-osd
-# exec --no-startup-id dunst
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id xfce4-notes
-exec --no-startup-id blueman-applet
-# exec --no-startup-id xmodmap -e "keysym Menu = Super_L"
-
-# exec --no-startup-id dropbox start
-
-exec_always --no-startup-id feh --bg-fill /home/yuce/Pictures/dssp.jpg
-
-exec_always --no-startup-id syndaemon -i 0.4 -k -R -t
+#exec --no-startup-id xfce4-volumed
+#exec --no-startup-id nm-applet
+## exec --no-startup-id killall -q notify-osd
+## exec --no-startup-id dunst
+#exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id xfce4-notes
+#exec --no-startup-id blueman-applet
+## exec --no-startup-id xmodmap -e "keysym Menu = Super_L"
+#
+## exec --no-startup-id dropbox start
+#
+# exec_always --no-startup-id feh --bg-fill /home/yuce/Pictures/BG/1920x1080.jpg
+#
+#exec_always --no-startup-id syndaemon -i 0.4 -k -R -t
 exec_always --no-startup-id setxkbmap -layout us,tr -option 'grp:alt_shift_toggle'
 
-exec_always --no-startup-id xscreensaver
+#exec_always --no-startup-id xscreensaver
+
+exec --no-startup-id dunst
 

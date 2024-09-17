@@ -5,7 +5,6 @@
     "erlang.enableExperimentalAutoComplete": true,
     "go.goroot": "/home/yuce/go",
     "go.gopath": "/home/yuce/go_path",
-    "telemetry.enableCrashReporter": false,
     "workbench.statusBar.visible": true,
     "editor.renderLineHighlight": "all",
     "window.zoomLevel": 0,
@@ -39,7 +38,6 @@
     "workbench.enableExperiments": false,
     "breadcrumbs.enabled": true,
     "workbench.settings.enableNaturalLanguageSearch": false,
-    "telemetry.enableTelemetry": false,
     "editor.dragAndDrop": false,
     "terminal.integrated.rendererType": "dom",
     "python.pythonPath": "",
@@ -73,7 +71,10 @@
             "args": [
                 "-c",
                 "c01"
-            ],
+            ]
+        },
+        "bash": {
+            "path": "bash",
             "icon": "terminal-bash"
         }
     },
@@ -82,4 +83,10 @@
     "java.jdt.ls.java.home": "/home/yuce/jdk-17",
     "git.openRepositoryInParentFolders": "never",
     "editor.guides.indentation": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "erlangFormatter.formatter": "erlfmt",
+    "editor.formatOnSave": true,
+    "zig.path": "/home/yuce/zig/zig",
+    "zig.zls.path": "/home/yuce/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+    "zig.initialSetupDone": true
 }
