@@ -22,7 +22,7 @@ function gitprompt()
 }
 
 downmus () {
-    yt-dlp -x --audio-format mp3 -o '%(autonumber)02d-%(title)s.%(ext)s' "$1"
+    $HOME/bin/yt-dlp -x --audio-format mp3 -o '%(autonumber)02d-%(title)s.%(ext)s' "$1"
 }
 
 # Map Ctrl-S to sth usefull other than XOFF (interrupt data flow).
