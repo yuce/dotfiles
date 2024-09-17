@@ -1,6 +1,5 @@
 // Place your settings in this file to overwrite the default settings
 {
-
     // Migrated from previous "File | Auto Save" setting:
     "files.autoSave": "onFocusChange",
     "erlang.enableExperimentalAutoComplete": true,
@@ -10,18 +9,20 @@
     "workbench.statusBar.visible": true,
     "editor.renderLineHighlight": "all",
     "window.zoomLevel": 0,
-    "editor.wordWrap": true,
+    "editor.wordWrap": "on",
     "window.menuBarVisibility": "toggle",
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "none",
     "workbench.welcome.enabled": false,
     "python.linting.enabledWithoutWorkspace": false,
     "go.toolsGopath": "/home/yuce/go_path",
     "editor.renderControlCharacters": true,
-    "editor.autoIndent": true,
+    "editor.autoIndent": "full",
     "extensions.ignoreRecommendations": false,
-    "go.lintFlags": ["-fast"],
+    "go.lintFlags": [
+        "-fast"
+    ],
     "C_Cpp.intelliSenseEngine": "Default",
     "python.disablePromptForFeatures": [
         "pylint"
@@ -36,7 +37,6 @@
     "d.tools.dProfileViewer": "/home/yuce/dmd2/linux/bin64/d-profile-viewer",
     "files.trimFinalNewlines": true,
     "workbench.enableExperiments": false,
-    "workbench.colorTheme": "Default Light+",
     "breadcrumbs.enabled": true,
     "workbench.settings.enableNaturalLanguageSearch": false,
     "telemetry.enableTelemetry": false,
@@ -55,5 +55,31 @@
     "update.showReleaseNotes": false,
     "go.formatTool": "goimports",
     "editor.trimAutoWhitespace": false,
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
+    "[yaml]": {
+        "editor.autoIndent": "full"
+    },
+    "terminal.integrated.profiles.linux": {
+        "CLC (local)": {
+            "path": "/home/yuce/bin/clc",
+            "args": [
+                "-c",
+                "local"
+            ],
+            "icon": "terminal-bash"
+        },
+        "CLC (Viridian C01)": {
+            "path": "/home/yuce/bin/clc",
+            "args": [
+                "-c",
+                "c01"
+            ],
+            "icon": "terminal-bash"
+        }
+    },
+    "workbench.colorTheme": "Default Light Modern",
+    "redhat.telemetry.enabled": false,
+    "java.jdt.ls.java.home": "/home/yuce/jdk-17",
+    "git.openRepositoryInParentFolders": "never",
+    "editor.guides.indentation": false,
 }
