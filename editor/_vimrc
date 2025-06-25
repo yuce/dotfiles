@@ -10,7 +10,7 @@ set modelines=0
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=indent,eol,start	" more powerful backspacing
 
-  " Now we set some defaults for the editor
+" Now we set some defaults for the editor
 set tabstop=4
 set shiftwidth=4
 set smarttab
@@ -65,6 +65,9 @@ hi RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/
 
 hi LineNr guibg=darkgray guifg=black
+
+" turn on highlighting current line
+set cursorline
 
 "" highlight lines with length > 80
 "hi LineTooLong ctermbg=yellow guibg=LightYellow
@@ -130,6 +133,17 @@ nnoremap <Leader>l+ yyp^v$r+o<Esc>
 nnoremap <Leader>l. yyp^v$r.o<Esc>
 inoremap <Leader>{ {<CR>}<Esc><s-o>
 "inoremap <Leader>f <Esc>bifunction <Esc>lea()<c-m>{<c-m>}<Esc><s-o><Tab><Esc>2kf(a
+
+" Go support
+" builtin: \gd go-to-definition
+au FileType go nmap <leader>gi :GoInfo<CR>
+au FileType go nmap <leader>gt :GoTestFunc<CR>
+au FileType go nmap <leader>gm :GoImplements<CR>
+au FileType go nmap <leader>gr :GoRename<CR>
+au FileType go nmap <leader>gs :GoReferrers<CR>
+au FileType go nmap <leader>gh :GoSameIdsToggle<CR>
+au FileType go nmap <leader>ge :GoDecls<CR>
+
 
 " toggle to paste correctly from system clipboard
 set pastetoggle=<F2>

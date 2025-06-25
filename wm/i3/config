@@ -18,6 +18,10 @@ font pango:monospace 8
 
 #exec --no-startup-id dex --autostart --environment
 
+#gaps inner 5px
+#gaps outer 0px
+#smart_gaps on
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #55AA55
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #005500
@@ -39,6 +43,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# display key turns on the laptop monitor (X1 Carbon)
+bindsym $mod+F7 exec --no-startup-id $home/.screenlayout/turn_on_laptop.sh
+
+
 # prevent mouse scroll on the title bar
 bindsym button4 nop
 bindsym button5 nop
@@ -46,7 +54,7 @@ bindsym button5 nop
 # start a terminal
 # bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Return exec sakura
-bindsym $mod+Shift+Return exec pcmanfm
+bindsym $mod+Shift+Return exec pcmanfm-qt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -60,6 +68,16 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+Shift+Ctrl+d exec --no-startup-id sh $home/bin/todo
 
+# screenshot
+bindsym Print exec "\
+    maim --hidecursor ~/Pictures/screenshots/$(date +%Y-%b-%d--%H-%M-%S_maim | tr A-Z a-z).png; \
+    i3-nagbar --message 'Screenshot created' --type warning & \
+    sleep 3; pkill i3-nagbar"
+
+bindsym Shift+Print exec "\
+    maim -i $($home/bin/active_window) --hidecursor ~/Pictures/screenshots/$(date +%Y-%b-%d--%H-%M-%S_maim | tr A-Z a-z).png && \
+    i3-nagbar --message 'Screenshot created' --type warning & \
+    sleep 3; pkill i3-nagbar"
 # change focus
 # bindsym $mod+j focus left
 # bindsym $mod+k focus down
@@ -149,7 +167,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # using plasma's logout screen instead of i3's
-bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+#bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,8 +204,8 @@ bindsym $mod+Shift+m move scratchpad
 #bindsym $mod+Tab scratchpad show
 bindsym $mod+Tab workspace back_and_forth
 # disabled the following until the new i3wm release
-#bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -P 'Mark: '
-#bindsym $mod+j exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -P 'Jump: '
+bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -P 'Mark: '
+bindsym $mod+j exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -P 'Jump: '
 
 # window on top of all windows
 bindsym $mod+o sticky toggle
@@ -222,7 +240,7 @@ bindsym F1 scratchpad show
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:monospace 12
+    #font pango:monospace 12
     #status_command i3blocks -c $home/.config/i3/i3blocks/etc/i3blocks.conf
     status_command i3status
     #tray_output primary
@@ -247,16 +265,16 @@ new_window pixel 1
 # workspace 8 output HDMI-1-1
 # workspace 10 output HDMI-1-1
 
-workspace 1 output HDMI-1
-workspace 3 output HDMI-1
-workspace 5 output HDMI-1
-workspace 7 output HDMI-1
-workspace 9 output LVDS-1
-workspace 2 output HDMI-1
-workspace 4 output HDMI-1
-workspace 6 output HDMI-1
-workspace 8 output HDMI-1
-workspace 10 output LVDS-1
+#workspace 1 output HDMI-1
+#workspace 3 output HDMI-1
+#workspace 5 output HDMI-1
+#workspace 7 output HDMI-1
+#workspace 9 output LVDS-1
+#workspace 2 output HDMI-1
+#workspace 4 output HDMI-1
+#workspace 6 output HDMI-1
+#workspace 8 output HDMI-1
+#workspace 10 output LVDS-1
 
 # Plasma compatibility improvements
 # see: https://github.com/heckelson/i3-and-kde-plasma
@@ -293,7 +311,10 @@ workspace 10 output LVDS-1
 #
 ## exec --no-startup-id dropbox start
 #
-# exec_always --no-startup-id feh --bg-fill /home/yuce/Pictures/BG/1920x1080.jpg
+
+hide_edge_borders smart_no_gaps
+
+exec_always --no-startup-id feh -Z --bg-fill /home/yuce/Pictures/walpapers/openbsd_1920x1080_v3.png
 #
 #exec_always --no-startup-id syndaemon -i 0.4 -k -R -t
 exec_always --no-startup-id setxkbmap -layout us,tr -option 'grp:alt_shift_toggle'
