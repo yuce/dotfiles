@@ -219,8 +219,28 @@ bookmark_jump () {
 alias m=bookmark_mark
 alias j=bookmark_jump
 
+lsof_=""
+fstat_=$(which fstat)
+if [[ "$fstat_" == "" ]]; then
+    lsof_=$(which lsof)
+fi
+
 whoseport () {
-    lsof -i ":$1" | grep LISTEN
+    local port=${1:-}
+    if [[ "$port" == "" ]]; then
+        echo "port is required"
+        return 1
+    fi
+    if [[ "$lsof_" != "" ]]; then
+        lsof -i ":$port" | grep LISTEN |awk '{print $1, $2}'
+        return 0
+    fi
+    if [[ "$fstat_" != "" ]]; then
+        fstat | grep ":$port" | awk '{print $2, $3}'
+        return 0
+    fi
+    echo "neither lsof nor fstat is available"
+    return 1
 }
 
 export BASHRC_READ=1
