@@ -3,9 +3,22 @@
 mouse = false
 bufferline = "always"
 cursorline = true
+continue-comments = false
+auto-completion = false
+color-modes = true
 
 [editor.whitespace]
 render.newline = "all"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.indent-guides]
+render = true
+#character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+character = "┆" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
 
 
 #[keys.normal]
