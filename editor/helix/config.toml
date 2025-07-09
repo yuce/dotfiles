@@ -4,6 +4,10 @@ mouse = false
 bufferline = "always"
 cursorline = true
 
+[editor.whitespace]
+render.newline = "all"
+
+
 #[keys.normal]
 #x = ["collapse_selection", "delete_selection"]
 #"A-x" = ["collapse_selection", "delete_selection_noyank"]

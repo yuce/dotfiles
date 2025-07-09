@@ -110,6 +110,9 @@ set showcmd
 set ignorecase
 set smartcase
 
+" save the buffer automatically on :make
+set autowrite
+
 map <M-Down> gj
 map <M-Up> gk
 imap <M-Up> <ESC>gki
