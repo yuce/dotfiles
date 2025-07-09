@@ -43,6 +43,8 @@ fi
 vimthm="PaperColor.vim"
 
 install bashrc               "$ROOT/shell/_bashrc"                "$HOME/.bashrc"
+install kshrc                "$ROOT/shell/_kshrc"                 "$HOME/.kshrc"
+install profile              "$ROOT/shell/_profile"               "$HOME/.profile"
 install screenrc             "$ROOT/shell/_screenrc"              "$HOME/.screenrc"
 install tmux                 "$ROOT/shell/_tmux.conf"             "$HOME/.tmux.conf"
 install z                    "$ROOT/bin/z.sh"                     "$HOME/bin/z.sh"
