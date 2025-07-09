@@ -9,6 +9,7 @@ render.newline = "all"
 
 
 #[keys.normal]
+#X = "select_line_above"
 #x = ["collapse_selection", "delete_selection"]
 #"A-x" = ["collapse_selection", "delete_selection_noyank"]
 #l = "extend_line_below"
@@ -21,3 +22,6 @@ render.newline = "all"
 #"0" = "goto_first_nonwhitespace"
 #"i" = ["collapse_selection", "insert_mode"]
 
+[keys.insert]
+pageup = "no_op"
+pagedown = "no_op"
