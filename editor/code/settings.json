@@ -12,7 +12,7 @@
     "window.menuBarVisibility": "toggle",
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
-    "editor.renderWhitespace": "none",
+    "editor.renderWhitespace": "all",
     "workbench.welcome.enabled": false,
     "python.linting.enabledWithoutWorkspace": false,
     "go.toolsGopath": "/home/yuce/go_path",
@@ -78,7 +78,7 @@
             "icon": "terminal-bash"
         }
     },
-    "workbench.colorTheme": "Default Light Modern",
+    "workbench.colorTheme": "D2 Light",
     "redhat.telemetry.enabled": false,
     "java.jdt.ls.java.home": "/home/yuce/jdk-17",
     "git.openRepositoryInParentFolders": "never",
@@ -88,5 +88,7 @@
     "editor.formatOnSave": true,
     "zig.path": "/home/yuce/zig/zig",
     "zig.zls.path": "/home/yuce/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
-    "zig.initialSetupDone": true
+    "zig.initialSetupDone": true,
+    "D2.execPath": "/home/yuce/go_path/bin/d2",
+    "window.customTitleBarVisibility": "never"
 }

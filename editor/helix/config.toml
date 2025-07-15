@@ -7,8 +7,11 @@ continue-comments = false
 auto-completion = false
 color-modes = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.whitespace]
-render.newline = "all"
+#render.newline = "all"
 
 [editor.cursor-shape]
 insert = "bar"
