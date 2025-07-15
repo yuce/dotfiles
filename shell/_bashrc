@@ -10,6 +10,8 @@
 
 # get rid of escaping auto-completion with Tab
 shopt -s direxpand
+# expand $!
+shopt -s histverify
 
 function gitprompt()
 {
