@@ -1,0 +1,26 @@
+
+# [language-server.erlang-lsp]
+# command = "elp"
+# args = ["server"]
+
+# [[language]]
+# name = "erlang"
+# language-servers = ["erlang-lsp"]
+
+#[language-server.rust-analyzer.config.check]
+#command = "clippy"
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+
+[[language]]
+name = "markdown"
+language-servers = ["harper-ls"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "typst"
+language-servers = ["harper-ls"]
+

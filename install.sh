@@ -56,4 +56,5 @@ install "VSCode settings"    "$ROOT/editor/code/settings.json"    "$code_user_di
 install "VSCode keybindings" "$ROOT/editor/code/keybindings.json" "$code_user_dir/keybindings.json"
 install "VSCode snippets"    "$ROOT/editor/code/snippets"         "$code_user_dir/snippets"
 install tmux                 "$ROOT/shell/_tmux.conf"             "$HOME/.tmux.conf"
-install helix                "$ROOT/editor/helix/config.toml"     "$HOME/.config/helix/config.toml"
+install "helix config"       "$ROOT/editor/helix/config.toml"     "$HOME/.config/helix/config.toml"
+install "helix languages"    "$ROOT/editor/helix/languages.toml"  "$HOME/.config/helix/languages.toml"
