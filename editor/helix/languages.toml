@@ -14,6 +14,9 @@
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.erlang-lsp]
+command = "elp"
+args = ["server"]
 
 [[language]]
 name = "markdown"
@@ -24,3 +27,14 @@ indent = { tab-width = 4, unit = "    " }
 name = "typst"
 language-servers = ["harper-ls"]
 
+[[language]]
+name = "erlang"
+language-servers = ["erlang-lsp"]
+
+[[language]]
+name = "c"
+indent = { tab-width = 4, unit = "t" }
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "t" }
