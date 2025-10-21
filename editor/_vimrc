@@ -53,6 +53,8 @@ if has('gui_running')
     "colorscheme darkblue
     set guioptions -=m
     set guioptions -=T
+else
+    set mouse=
 endif
 
 ":set cursorline

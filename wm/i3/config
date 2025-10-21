@@ -213,7 +213,7 @@ bindsym F1 scratchpad show
 # play/pause music
 bindsym $mod+grave exec --no-startup-id aqualung -U
 
-# bindsym $mod+Shift+l exec i3lock --color a0a0f
+bindsym $mod+Shift+l exec i3lock --color a0a0f
 #bindsym Print exec spectacle
 #bindsym XF86HomePage exec dolphin
 #bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ && pkill -RTMIN+10 i3blocks

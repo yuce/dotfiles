@@ -21,6 +21,14 @@ language-servers = ["harper-ls"]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
+name = "c"
+indent = { tab-width = 4, unit = "t" }
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "t" }
+
+[[language]]
 name = "typst"
 language-servers = ["harper-ls"]
 
