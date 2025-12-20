@@ -9,3 +9,8 @@ then
     ENV=$HOME/.kshrc
     export ENV
 fi
+
+if [[ "BASH_VERSION" != "" ]]; then
+    . $HOME/.bashrc
+fi
+
