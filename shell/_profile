@@ -13,4 +13,3 @@ fi
 if [[ "BASH_VERSION" != "" ]]; then
     . $HOME/.bashrc
 fi
-
