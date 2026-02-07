@@ -111,7 +111,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -309,7 +309,7 @@ new_window pixel 1
 
 hide_edge_borders smart_no_gaps
 
-exec_always --no-startup-id feh -Z --bg-fill /home/yuce/Pictures/walpapers/openbsd_1920x1080_v3.png
+exec_always --no-startup-id feh -Z --bg-max /home/yuce/Pictures/walpapers/openbsd_1920x1080_v3.png
 #
 #exec_always --no-startup-id syndaemon -i 0.4 -k -R -t
 exec_always --no-startup-id setxkbmap -layout us,tr -option 'grp:win_space_toggle'

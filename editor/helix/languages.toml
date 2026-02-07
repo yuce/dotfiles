@@ -46,3 +46,7 @@ indent = { tab-width = 4, unit = "t" }
 [[language]]
 name = "cpp"
 indent = { tab-width = 4, unit = "t" }
+
+[[language]]
+name = "janet"
+indent = { tab-width = 4, unit = "t" }
