@@ -10,6 +10,6 @@ then
     export ENV
 fi
 
-if [[ "BASH_VERSION" != "" ]]; then
+if [[ "$BASH_VERSION" != "" ]]; then
     . $HOME/.bashrc
 fi
