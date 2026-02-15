@@ -50,3 +50,8 @@ indent = { tab-width = 4, unit = "t" }
 [[language]]
 name = "janet"
 indent = { tab-width = 4, unit = "t" }
+
+[[language]]
+name = "prolog"
+file-types = ["prolog", "pl", "ecl"]
+indent = { tab-width = 4, unit = "t" }
